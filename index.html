@@ -1,0 +1,137 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rosa Ramos Alcantara – Portafolio</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <!-- Swiper Carousel -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav data-aos="fade-down">
+    <a href="#" class="logo">
+      <img src="/imagen/logorr.png" alt="Rosa Ramos " class="logo-img" /> Videos y Fotos
+    </a>
+    <div class="nav-links">
+      <a href="#about">Acerca</a>
+      <a href="#contact">Contacto</a>
+      <a href="https://github.com/JohnnyFenelon" target="_blank"><i class="fas fa-camera-retro"></i></a>
+      <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://tiktok.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+  </nav>
+
+
+
+  <!-- HERO -->
+  <header class="hero" id="hero" data-aos="fade-up" data-aos-delay="200">
+    <div class="hero-content">
+      <h1>Rosa Ramos Alcantara</h1>
+      <p class="tagline">Video Editora y Creadora de Páginas WEB</p>
+      <a href="https://github.com/JohnnyFenelon" class="cta" target="_blank" rel="noopener">Fotos y Videos</a>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="about" data-aos="fade-up">
+    <h2>Sobre Mí</h2>
+    <p>Soy Asesora de Marketing y Creadora Digital.<br>
+       Me dedico a impulsar marcas y crear engagement.<br>
+       Disponible en USA & RD. ¡Alcancemos el éxito juntos!</p>
+  </section>
+
+    <!-- CAROUSEL -->
+  <div class="carousel-container" data-aos="fade-up" data-aos-duration="000">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="/imagen/model.png" alt="Model 1"></div>
+        <div class="swiper-slide"><img src="/imagen/model2.png" alt="Model 2"></div>
+        <div class="swiper-slide"><img src="/imagen/model3.png" alt="Model 3"></div>
+        <div class="swiper-slide"><img src="/imagen/model4.png" alt="Model 4"></div>
+        <div class="swiper-slide"><img src="/imagen/model5.png" alt="Model 5"></div>
+        <div class="swiper-slide"><img src="/imagen/model6.png" alt="Model 6"></div>
+      </div>
+      <!-- navigation -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <!-- pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact" data-aos="fade-up" data-aos-delay="200">
+    <h2>Contáctame</h2>
+    <form id="contact-form">
+      <input type="text" name="from_name" placeholder="Tu nombre" required>
+      <input type="email" name="reply_to" placeholder="Tu email" required>
+      <textarea name="message" placeholder="¿En qué puedo ayudarte?" required></textarea>
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer data-aos="fade-up" data-aos-delay="400">
+    <div class="footer-services">
+      <h3>Servicios</h3>
+      <ul>
+        <li>Fotografías Corporativa</li>
+        <li>Fotografías de Bodas</li>
+        <li>Fotos de Cumpleaños</li>
+        <li>Video Editing</li>
+        <li>AI Integracion</li>
+        <li>Paginas Web Privadas con Pagos</li>
+      </ul>
+    </div>
+    <div class="footer-social">
+      <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://tiktok.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <p class="footer-note">Dominican Republic, Zona Industrial | All rights reserved Rosa Ramos Alcantara / Kynex Web Solutions 2025 | 8093050770</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    AOS.init({ once: true });
+
+    // Initialize Swiper
+    const swiper = new Swiper('.swiper-container', {
+      loop: true,
+      slidesPerView: 3,
+      spaceBetween: 20,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      autoplay: { delay: 2500 }
+    });
+
+    // EmailJS setup
+    emailjs.init('YOUR_PUBLIC_KEY');
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      emailjs.sendForm('YOUR_SERVICE_ID','YOUR_TEMPLATE_ID', this)
+        .then(() => { alert('¡Mensaje enviado!'); this.reset(); })
+        .catch((err) => { console.error(err); alert('Error al enviar.'); });
+    });
+  </script>
+</body>
+</html>
