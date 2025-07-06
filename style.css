@@ -2,7 +2,7 @@
 :root {
   --primary: #ffffff;
   --accent: #ff3366;
-  --bg-image: url('https://github.com/JohnnyFenelon/rosaramos/blob/37b32832752c8abe5bec4bd8b996718d7bf0ec8f/imagen/rosa2.png');
+  --bg-image: url('https://github.com/JohnnyFenelon/rosaramos/blob/37b32832752c8abe5bec4bd8b996718d7bf0ec8f/imagen/rosa2.png?raw=true');
   --blur: 6px;
   --radius: 1rem;
   --font-family: 'Poppins', sans-serif;
